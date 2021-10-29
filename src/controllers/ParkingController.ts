@@ -17,4 +17,17 @@ router.post('/create', async (req:express.Request, res:express.Response) => {
   }
 })
 
+router.get('/:id/slot', async (req:express.Request, res:express.Response) => {
+  try {
+    const { statusCode, response } = await parkingService.getParkingStatus(req.params.id)
+    res.status(statusCode).json(response)
+  } catch (err: any) {
+    if (err instanceof CustomError) {
+      res.status(err.statusCode).json({message: err.errorDescription})
+    } else {
+      res.status(500).json(err.error)
+    }
+  }
+})
+
 export default router

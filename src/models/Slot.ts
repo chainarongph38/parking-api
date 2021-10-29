@@ -4,9 +4,9 @@ import { sequelize } from '../database/connection';
 export class Slot extends Model {
   id!: number;
   name!: string;
-  isAvailable!: number;
-  createdAt!: Date;
-  UpdatedAt!: Date;
+  is_available!: number;
+  created_at!: Date;
+  updated_at!: Date;
 }
 
 Slot.init(
@@ -16,7 +16,7 @@ Slot.init(
       allowNull: false
     },
 
-    isAvailable: {
+    is_available: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     }
@@ -25,5 +25,6 @@ Slot.init(
     sequelize,
     tableName: 'slot',
     freezeTableName: true,
+    underscored: true
   },
 );

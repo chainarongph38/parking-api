@@ -20,6 +20,11 @@ class ParkingService {
     return { statusCode: 200, response: result }
   }
 
+  public async getParkingStatus(id: string) {
+    const result = await parkingRepository.getSlotById(id)
+    return { statusCode: 200, response: result }
+  }
+
   public handleValidateResult (validateResult: any) {
     if (validateResult.error) {
       const errorDetail = validateResult.error.details[0]

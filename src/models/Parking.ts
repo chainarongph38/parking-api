@@ -6,7 +6,7 @@ export class Parking extends Model {
   name!: string;
   slot!: number;
   createdAt!: Date;
-  UpdatedAt!: Date;
+  updatedAt!: Date;
 }
 
 Parking.init(
