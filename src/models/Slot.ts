@@ -1,29 +1,29 @@
 import { Model, DataTypes } from 'sequelize';
 import { sequelize } from '../database/connection';
 
-export class Parking extends Model {
+export class Slot extends Model {
   id!: number;
   name!: string;
-  slot!: number;
+  isAvailable!: number;
   createdAt!: Date;
   UpdatedAt!: Date;
 }
 
-Parking.init(
+Slot.init(
   {
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
 
-    slot: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+    isAvailable: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     }
   },
   {
     sequelize,
-    tableName: 'parking',
+    tableName: 'slot',
     freezeTableName: true,
   },
 );

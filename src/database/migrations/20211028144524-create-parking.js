@@ -18,13 +18,16 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      reserve: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        defaultValue: 0
+      updated_at: {
+        type: Sequelize.DATE,
+        defaultValue: new Date()
       },
-      updatedAt: Sequelize.DATE,
-      createdAt: Sequelize.DATE
+      created_at: {
+        type: Sequelize.DATE,
+        defaultValue: new Date()
+      }
+    }).then(function () {
+      queryInterface.sequelize.query("insert into parking (name, slot) values ('Test1', 5)");
     });
   },
 

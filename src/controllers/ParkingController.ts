@@ -9,9 +9,8 @@ router.post('/create', async (req:express.Request, res:express.Response) => {
     const { statusCode, response } = await parkingService.createParking(req.body)
     res.status(statusCode).json(response)
   } catch (err: any) {
-    console.log(err)
     if (err instanceof CustomError) {
-      res.status(err.statusCode).json(err.error)
+      res.status(err.statusCode).json({message: err.errorDescription})
     } else {
       res.status(500).json(err.error)
     }
